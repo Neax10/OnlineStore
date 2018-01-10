@@ -1,12 +1,28 @@
 {
+    "name": "Neax10/OnlineStore",
+    "type": "website",
+    "description": "OnlineStore as the name suggest a e-commerce website.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julian Häßler",
+            "email": "julian.haessler@yahoo.de",
+        },
+        {
+            "name": "Moritz Effner",
+        },
+        {
+            "name": "Lukas Ritter",
+        }
+    ],
     "require": {
+        "php": ">=5.5.0",
         "slim/slim": "^3.0",
         "slim/twig-view": "^2.3",
         "illuminate/database": "^5.5",
         "respect/validation": "^1.1",
         "slim/csrf": "^0.8.2"
     },
-
     "autoload": {
     	"psr-4": {
     		"OnlineStore\\": "app"
