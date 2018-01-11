@@ -6,13 +6,13 @@
     "authors": [
         {
             "name": "Julian Häßler",
-            "email": "julian.haessler@yahoo.de",
+            "email": "julian.haessler@yahoo.de"
         },
         {
-            "name": "Moritz Effner",
+            "name": "Moritz Effner"
         },
         {
-            "name": "Lukas Ritter",
+            "name": "Lukas Ritter"
         }
     ],
     "require": {
