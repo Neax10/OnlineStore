@@ -22,7 +22,6 @@ class User extends Model
 		'password',
 		'created_at',
 		'update_at'
-
 	];
 
 	public function setPassword($password)
