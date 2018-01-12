@@ -3,6 +3,13 @@
 use OnlineStore\Middleware\AuthMiddleware;
 use OnlineStore\Middleware\GuestMiddleware;
 
+/*
+These are the routes of the Website, every route corresponds with a function in a Controller.
+So every request gets redirected to a function that then most likley sends a Redirect or 
+renders a view that gets rendered to the user.
+
+Additionally there are Middlewares here that first check if the user has access to the site, the user get redirected accordingly.
+*/
 $app->get('/', 'HomeController:index')->setName('home');
 
 $app->group('', function() {

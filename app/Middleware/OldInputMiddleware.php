@@ -2,6 +2,7 @@
 
 namespace OnlineStore\Middleware;
 
+//Middleware to save the old inputs in forms.
 class OldInputMiddleware extends Middleware {
 	public function __invoke($request, $response, $next)
 	{

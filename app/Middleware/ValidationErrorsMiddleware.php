@@ -2,6 +2,7 @@
 
 namespace OnlineStore\Middleware;
 
+//Middleware that adds all errors from Validation to a global variable 'errors'
 class ValidationErrorsMiddleware extends Middleware {
 	public function __invoke($request, $response, $next)
 	{

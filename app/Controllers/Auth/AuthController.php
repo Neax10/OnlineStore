@@ -6,6 +6,7 @@ use OnlineStore\Models\User;
 use OnlineStore\Controllers\Controller;
 use Respect\Validation\Validator as v;
 
+//Controller for get and post request for Authentication
 class AuthController extends Controller
 {
 	public function getLogout($request, $response)

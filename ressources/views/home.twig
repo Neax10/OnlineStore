@@ -1,22 +1,26 @@
 {% extends 'templates/onlinestore.twig' %}
 
 {% block content %}
-	Home ist hier du opfa
 
 	<table class="table table-hover" max-width=200px>
-
-		<tr>
-		<td>rofl1</td>
-		<td>rofl2</td>
-		</tr>
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Description</th>
+				<th scope="col">Picture</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for product in product.products %}
 				<tr>
-		<td>rofl1</td>
-		<td>rofl2</td>
-		</tr>
-				<tr>
-		<td>rofl1</td>
-		<td>rofl2</td>
-		</tr>
+					<td>{{ loop.index }}</td>
+					<td>{{ product.name }}</td>  
+					<td>{{ product.description }}</td>  
+					<td><img src={{ product.picture }} ></td>  
+				</tr>
+			{% endfor %}
+		</tbody>
 	</table>
 
 {% endblock %}

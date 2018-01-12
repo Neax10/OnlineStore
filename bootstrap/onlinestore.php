@@ -6,6 +6,7 @@ session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 
+//Creates a new Slim\App with the db connection
 $app = new \Slim\App([
 	'settings' => [
 		'displayErrorDetails' => true,
@@ -30,6 +31,8 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+
+//Everything needs to be added to containers to be used by the application
 $container['db'] = function ($container) use ($capsule) {
 	return $capsule;
 };
@@ -38,11 +41,14 @@ $container['auth'] = function ($container) {
 	return new \OnlineStore\Auth\Auth;
 };
 
+$container['product'] = function ($container) {
+	return new \OnlineStore\Product\Product;
+};
+
 $container['view'] = function($container) {
 	$view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
 		'cache' => false,
 	]);
-
 
 	$view->addExtension(new \Slim\Views\TwigExtension(
 		$container->router,
@@ -52,6 +58,10 @@ $container['view'] = function($container) {
 	$view->getEnvironment()->addGlobal('auth', [
 		'check' => $container->auth->check(),
 		'user' => $container->auth->user(),
+	]);
+
+	$view->getEnvironment()->addGlobal('product', [
+		'products' => $container->product->products(),
 	]);
 
 	return $view;
@@ -78,7 +88,7 @@ $container['csrf'] = function ($container) {
 };
 
 
-
+//Middleware
 $app->add(new \OnlineStore\Middleware\ValidationErrorsMiddleware($container));
 $app->add(new \OnlineStore\Middleware\OldInputMiddleware($container));
 $app->add(new \OnlineStore\Middleware\CsrfViewMiddleware($container));

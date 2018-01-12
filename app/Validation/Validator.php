@@ -5,6 +5,10 @@ namespace OnlineStore\Validation;
 use Respect\Validation\Validator as Respect;
 use Respect\Validation\Exceptions\NestedValidationException;
 
+/*
+Validator class that checks every rule and returns the errors and itself.
+Every custom exception also requires a custom rule.
+*/
 class Validator
 {
 	public function validate($request, array $rules)
