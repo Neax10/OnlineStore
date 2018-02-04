@@ -22,6 +22,12 @@ $app->group('', function() {
 	
 
 $app->group('', function() {
+	$this->get('/product', 'ProductController:getProduct')->setName('product');
+
+	$this->get('/shoppingcart', 'ProductController:getShoppingcart')->setName('shoppingcart');
+
+	$this->get('/auth/profile', 'AuthController:getProfile')->setName('auth.profile');
+
 	$this->get('/auth/logout', 'AuthController:getLogout')->setName('auth.logout');
 
 	$this->get('/auth/password/change', 'PasswordController:getChangePassword')->setName('auth.password.change');

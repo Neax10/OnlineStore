@@ -1,0 +1,18 @@
+<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+ <defs>
+  <style type="text/css">#holder_1614d919deb text { fill:#333;font-weight:normal;font-family:Helvetica, monospace;font-size:40pt }</style>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="202" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="holder_1614d919deb">
+   <rect x="0" y="-91" id="svg_1" fill="#555" height="400" width="800"/>
+   <g id="svg_2">
+    <text id="svg_3" y="126.7" x="277">Third slide</text>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -64,6 +64,8 @@ $container['view'] = function($container) {
 		'products' => $container->product->products(),
 	]);
 
+	$view->getEnvironment()->addGlobal('image', realpath(__DIR__ . '/../public/img'));
+
 	return $view;
 };
 
@@ -73,6 +75,10 @@ $container['validator'] = function($container) {
 
 $container['HomeController'] = function($container) {
 	return new \OnlineStore\Controllers\HomeController($container);
+};
+
+$container['ProductController'] = function($container) {
+	return new \OnlineStore\Controllers\ProductController($container);
 };
 
 $container['AuthController'] = function($container) {

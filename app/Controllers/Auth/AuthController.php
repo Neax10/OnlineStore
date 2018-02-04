@@ -9,6 +9,10 @@ use Respect\Validation\Validator as v;
 //Controller for get and post request for Authentication
 class AuthController extends Controller
 {
+	public function getProfile($request, $response)
+	{
+		return $this->view->render($response, 'auth/profile.twig');
+	}
 	public function getLogout($request, $response)
 	{
 		$this->auth->logout();

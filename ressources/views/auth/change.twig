@@ -1,41 +1,43 @@
 {% extends 'templates/onlinestore.twig' %}
 
 {% block content %}
+<div class="container">
 	<div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h1>Change Password</h1>
-        </div>
-        <div class="card-body">
-          <form id="form-register" action="{{path_for('auth.password.change') }}" method="post" autocomplete="off">
-            <div class="form-group">
-              <label for="password_old">Current Password</label>
-              <input type="password" class="form-control{{ errors.password_old ? ' is-invalid' : '' }}" id="password_old" name="password_old" placeholder="Current Password">
-              <div class="invalid-feedback">
-                {{ errors.password_old | first }}
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password_new">New Password</label>
-              <input type="password" class="form-control{{ errors.password_new ? ' is-invalid' : '' }}" id="password_new" name="password_new" placeholder="New Password">
-              <div class="invalid-feedback">
-                {{ errors.password_new | first }}
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control{{ errors.password_new_repeat ? ' is-invalid' : '' }}" id="password_new_repeat" name="password_new_repeat" placeholder="Repeat new Password">
-              <div class="invalid-feedback">
-                {{ errors.password_new_repeat | first }}
-              </div>
-            </div>
-            <button type="submit" class="btn btn-success btn-lg" name="submit" value="login">Change Password</button>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h1>Change Password</h1>
+				</div>
+				<div class="card-body">
+					<form id="form-register" action="{{path_for('auth.password.change') }}" method="post" autocomplete="off">
+						<div class="form-group">
+							<label for="password_old">Current Password</label>
+							<input type="password" class="form-control{{ errors.password_old ? ' is-invalid' : '' }}" id="password_old" name="password_old" placeholder="Current Password">
+							<div class="invalid-feedback">
+								{{ errors.password_old | first }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password_new">New Password</label>
+							<input type="password" class="form-control{{ errors.password_new ? ' is-invalid' : '' }}" id="password_new" name="password_new" placeholder="New Password">
+							<div class="invalid-feedback">
+								{{ errors.password_new | first }}
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control{{ errors.password_new_repeat ? ' is-invalid' : '' }}" id="password_new_repeat" name="password_new_repeat" placeholder="Repeat new Password">
+							<div class="invalid-feedback">
+								{{ errors.password_new_repeat | first }}
+							</div>
+						</div>
+						<button type="submit" class="btn btn-success btn-lg" name="submit" value="login">Change Password</button>
 
-            {{ csrf.field | raw }}
+						{{ csrf.field | raw }}
 
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
