@@ -14,6 +14,7 @@
 					<div class="col">
 						<p><h3>{{ product.price }}$</h3></p>
 						<p>5 Left in Stock</p>
+						<input type="number" id="amount" name="amount" class="form-control" value="1">
 						<button type="submit" class="btn btn-primary btn-lg">BUY</button>
 					</div>
 					{{ csrf.field | raw }}

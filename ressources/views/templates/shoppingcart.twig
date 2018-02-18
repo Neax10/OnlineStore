@@ -33,15 +33,19 @@
 			<h1>List of Products</h1>
 			<table class="table table-hover">
 				<tbody>
-					{% for product in product.products %}
-						{% if loop.index < 5 %}
-							<tr>
-								<td><img src={{ product.picture }} ></td>  
-								<td>{{ product.name }}</td>
-								<td>{{ product.price }}€</td>  
-							</tr>
-						{% endif %}
+					{% for product in products %}
+						<tr>
+							<td><img src={{ product.article.picture }} ></td>  
+							<td>{{ product.article.name }}</td>
+							<td>{{ product.amount}}x</td> 
+							<td>{{ product.article.price}}€</td>
+							<td><b>{{ product.amount * product.article.price}}€</b></td>   
+						</tr>
 					{% endfor %}
+					<tr>
+						<td colspan="4" align="right">Total Sum:</td>
+						<td><b>{{ total }}€</b></td>
+					</tr>
 				</tbody>
 			</table>
 			<button type="button" class="btn btn-primary btn-lg">Finalize Order</button>

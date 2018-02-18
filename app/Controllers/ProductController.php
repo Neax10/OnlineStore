@@ -24,9 +24,11 @@ class ProductController extends Controller
 	{
 		$product = Article::find($product['id']);
 
-		if ($product) {
-			$cookie = $product['id'] . " " . 1 . ".";
-			setcookie("shoppingcart", $cookie, time() + (86400 * 30), "/");
+
+
+		if ($product && $request->getParam('amount') > 0) {
+			$cookie = $product['id'] . "." . $request->getParam('amount');
+			setcookie("sc" . $product['id'], $cookie, time() + (86400 * 30), "/");
 		}
 
 		return $response->withRedirect($this->router->pathFor('product', [
@@ -38,7 +40,27 @@ class ProductController extends Controller
 
 	public function getShoppingcart($request, $response)
 	{
-		return $this->view->render($response, 'templates/shoppingcart.twig');
+		$product = array();
+		$totalprice = 0;
+
+		if (isset($_COOKIE)) {
+			foreach ($_COOKIE as $key => $value) {
+				if (preg_match("/^$key*/", "sc")) {
+					$data = explode(".", $value);
+					$article = Article::find($data[0]);
+					$amount = $data[1];
+
+					$totalprice += ($article['price'] * $amount);
+
+					$product[] = array("article" => $article, "amount" => $amount);
+				}
+			}
+		}
+
+		return $this->view->render($response, 'templates/shoppingcart.twig', [
+			'products' => $product,
+			'total' => $totalprice
+		]);
 	}
 }
 
