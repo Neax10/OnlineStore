@@ -41,10 +41,6 @@ $container['auth'] = function ($container) {
 	return new \OnlineStore\Auth\Auth;
 };
 
-$container['product'] = function ($container) {
-	return new \OnlineStore\Product\Product;
-};
-
 $container['view'] = function($container) {
 	$view = new \Slim\Views\Twig(__DIR__ . '/../ressources/views', [
 		'cache' => false,
@@ -58,10 +54,6 @@ $container['view'] = function($container) {
 	$view->getEnvironment()->addGlobal('auth', [
 		'check' => $container->auth->check(),
 		'user' => $container->auth->user(),
-	]);
-
-	$view->getEnvironment()->addGlobal('product', [
-		'products' => $container->product->products(),
 	]);
 
 	$view->getEnvironment()->addGlobal('image', realpath(__DIR__ . '/../public/img'));

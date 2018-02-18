@@ -8,32 +8,25 @@
 			<div class="row">
 				<div class="col-md-auto">
 					<h2>Picture</h2>
-					<img src="https://robohash.org/68.186.255.198.png">
+					<img src="{{ product.picture }}">
 				</div>
-				<div class="col">
-					<p><h3>26,77€</h3></p>
-					<p>5 Left in Stock</p>
-					<button type="button" class="btn btn-primary btn-lg">BUY</button>
-				</div>
+				<form method="post">
+					<div class="col">
+						<p><h3>{{ product.price }}$</h3></p>
+						<p>5 Left in Stock</p>
+						<button type="submit" class="btn btn-primary btn-lg">BUY</button>
+					</div>
+					{{ csrf.field | raw }}
+				</form>
 			</div>
 			<div class="container">
 				<h2>Description</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p> {{ product.description }} </p>
 			</div>
 		</div>
 		<div class="col col-lg-3">
 			<h1>Specification</h1>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			{{ product.category }}
 		</div>
 	</div>
 </div>

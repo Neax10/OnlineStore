@@ -22,7 +22,8 @@ $app->group('', function() {
 	
 
 $app->group('', function() {
-	$this->get('/product', 'ProductController:getProduct')->setName('product');
+	$this->get('/product/{id}/{name}', 'ProductController:getProduct')->setName('product');
+	$this->post('/product/{id}/{name}', 'ProductController:postProduct');
 
 	$this->get('/shoppingcart', 'ProductController:getShoppingcart')->setName('shoppingcart');
 
