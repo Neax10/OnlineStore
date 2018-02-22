@@ -25,7 +25,6 @@ class ProductController extends Controller
 		$product = Article::find($product['id']);
 
 
-
 		if ($product && $request->getParam('amount') > 0) {
 			$cookie = $product['id'] . "." . $request->getParam('amount');
 			setcookie("sc" . $product['id'], $cookie, time() + (86400 * 30), "/");

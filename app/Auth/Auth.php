@@ -8,10 +8,10 @@ class Auth
 {
 
 	//Login attempt
-	public function attempt($username, $password)
+	public function attempt($email, $password)
 	{
 		//Grab first result by username
-		$user = User::where('username', $username)->first();
+		$user = User::where('email', $email)->first();
 
 		if(!$user) {
 			return false;
@@ -19,7 +19,7 @@ class Auth
 
 		//Compares the password from the Database with the Input
 		if(password_verify($password, $user->password)) {
-			$_SESSION['user'] = $user->id;
+			$_SESSION['user'] = $user->email;
 			return true;
 		}
 

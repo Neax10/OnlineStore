@@ -10,10 +10,17 @@ class Article extends Model
 
 	protected $fillable = [
 		'name',
-		'description',
+		'description_short',
+		'description_long',
 		'category',
-		'picture',
-		'price'
+		'picture_thumb',
+		'picture_large',
+		'amount',
+		'price',
+		'created_at',
+		'update_at',
+		'path',
+		'active'
 	];
 	
 }

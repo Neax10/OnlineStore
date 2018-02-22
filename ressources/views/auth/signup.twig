@@ -11,16 +11,6 @@
 				<div class="card-body">
 					<form id="form-register" action="{{path_for('auth.signup') }}" method="post" autocomplete="off">
 						<div class="form-group">
-							<label for="input-register-name">Username</label>
-							<input type="text" class="form-control{{ errors.username ? ' is-invalid' : '' }}" id="input-register-name" name="username" placeholder="Username" value="{{ old.username }}">
-							<small id="passwordHelpBlock" class="form-text text-muted">
-								Your Usnername must be 4-32 characters long.
-							</small>
-							<div class="invalid-feedback">
-								{{ errors.username | first }}
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="input-register-email">E-Mail</label>
 							<input type="email" class="form-control{{ errors.email ? ' is-invalid' : '' }}" id="input-register-email" name="email" placeholder="E-Mail" value="{{ old.email }}">
 							<div class="invalid-feedback">

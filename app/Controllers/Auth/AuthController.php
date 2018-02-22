@@ -28,7 +28,7 @@ class AuthController extends Controller
 	public function postLogin($request, $response)
 	{
 		$auth = $this->auth->attempt(
-			$request->getParam('username'),
+			$request->getParam('email'),
 			$request->getParam('password')
 		);
 
@@ -49,7 +49,6 @@ class AuthController extends Controller
 	{
 		$validation = $this->validator->validate($request, [
 			'email' => v::noWhiteSpace()->notEmpty()->email()->EmailAvailable(),
-			'username' => v::noWhiteSpace()->notEmpty()->alpha()->length(4,20),
 			'password' => v::noWhiteSpace()->notEmpty()->length(8,72),
 		]);
 
@@ -58,12 +57,11 @@ class AuthController extends Controller
 		}
 
 		$user = User::create([
-			'username' => $request->getParam('username'),
 			'email' => $request->getParam('email'),
 			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT, ['cost' => 14]),
 		]);
 
-		$this->auth->attempt($user->username, $request->getParam('password'));
+		$this->auth->attempt($user->email, $request->getParam('password'));
 
 		return $response->withRedirect($this->router->pathFor('home'));
 	}

@@ -7,21 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
 	protected $table = 'user';
+	protected $primaryKey = 'email';
 
 	protected $fillable = [
+		'email',
+		'password',
 		'firstname',
 		'lastname',
-		'email',
 		'birthday',
-		'street',
-		'postcode',
-		'state',
-		'country',
-		'state',
-		'username',
-		'password',
+		'phone',
+		'billing_address_id',
+		'delivery_address_id',
+		'money',
 		'created_at',
-		'update_at'
+		'verified',
+		'active'
 	];
 
 	public function setPassword($password)

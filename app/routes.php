@@ -11,6 +11,7 @@ renders a view that gets rendered to the user.
 Additionally there are Middlewares here that first check if the user has access to the site, the user get redirected accordingly.
 */
 $app->get('/', 'HomeController:index')->setName('home');
+$app->get('/product/{id}/{name}', 'ProductController:getProduct')->setName('product');
 
 $app->group('', function() {
 	$this->get('/auth/signup', 'AuthController:getSignUp')->setName('auth.signup');
@@ -22,7 +23,6 @@ $app->group('', function() {
 	
 
 $app->group('', function() {
-	$this->get('/product/{id}/{name}', 'ProductController:getProduct')->setName('product');
 	$this->post('/product/{id}/{name}', 'ProductController:postProduct');
 
 	$this->get('/shoppingcart', 'ProductController:getShoppingcart')->setName('shoppingcart');
